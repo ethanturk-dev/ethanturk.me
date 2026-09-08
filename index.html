@@ -1,49 +1,277 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>website of doom</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #0d1117;
-            color: #f0f6fc;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            text-align: center;
-        }
-        .container {
-            padding: 2rem;
-            border-radius: 12px;
-            background-color: #161b22;
-            border: 1px solid #30363d;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-            max-width: 400px;
-            width: 90%;
-        }
-        h1 {
-            font-size: 1.8rem;
-            margin-bottom: 0.5rem;
-            color: #58a6ff;
-        }
-        p {
-            color: #8b949e;
-            font-size: 1rem;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ethanturk.me | Terminal</title>
+  <style>
+    :root {
+      --bg-color: #0d1117;
+      --term-bg: #161b22;
+      --text-green: #3fb950;
+      --text-cyan: #58a6ff;
+      --text-white: #c9d1d9;
+      --text-muted: #8b949e;
+      --prompt-path: #d2a8ff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-white);
+      font-family: 'Courier New', Courier, monospace;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .terminal {
+      width: 100%;
+      max-width: 850px;
+      height: 520px;
+      background-color: var(--term-bg);
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      border: 1px solid #30363d;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .terminal-header {
+      background-color: #21262d;
+      padding: 10px 15px;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #30363d;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 8px;
+    }
+
+    .btn {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+
+    .btn-close { background-color: #ff5f56; }
+    .btn-min { background-color: #ffbd2e; }
+    .btn-max { background-color: #27c93f; }
+
+    .title {
+      flex: 1;
+      text-align: center;
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-right: 48px;
+    }
+
+    .terminal-body {
+      padding: 20px;
+      flex: 1;
+      overflow-y: auto;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .prompt {
+      color: var(--text-green);
+    }
+
+    .prompt .path {
+      color: var(--prompt-path);
+    }
+
+    .input-line {
+      display: flex;
+      align-items: center;
+      margin-top: 5px;
+    }
+
+    .input-line input {
+      background: transparent;
+      border: none;
+      outline: none;
+      color: var(--text-white);
+      font-family: inherit;
+      font-size: inherit;
+      flex: 1;
+      margin-left: 8px;
+    }
+
+    .output {
+      margin-bottom: 10px;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    a {
+      color: var(--text-cyan);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .quick-cmds {
+      padding: 10px 20px;
+      background: #0d1117;
+      border-top: 1px solid #30363d;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .cmd-btn {
+      background: #21262d;
+      border: 1px solid #30363d;
+      color: var(--text-cyan);
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 12px;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .cmd-btn:hover {
+      background: #30363d;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>ethanturk.me</h1>
-        <p>check it out its back up but idk what to do with it</p>
+
+  <div class="terminal" onclick="document.getElementById('cli').focus()">
+    <div class="terminal-header">
+      <div class="buttons">
+        <div class="btn btn-close"></div>
+        <div class="btn btn-min"></div>
+        <div class="btn btn-max"></div>
+      </div>
+      <div class="title">ethan@ethanturk.me:~</div>
     </div>
+
+    <div class="terminal-body" id="terminal-body">
+      <div id="history">
+        <div class="output">Welcome to <span style="color: var(--text-cyan)">ethanturk.me</span> CLI v1.0.0
+Type <span style="color: var(--text-green)">'help'</span> to see available commands.
+--------------------------------------------------</div>
+      </div>
+
+      <div class="input-line">
+        <span class="prompt">guest@ethanturk.me:<span class="path">~</span>$</span>
+        <input type="text" id="cli" autofocus autocomplete="off" spellcheck="false">
+      </div>
+    </div>
+
+    <div class="quick-cmds">
+      <span style="color: var(--text-muted); font-size: 12px; align-self: center;">Quick commands:</span>
+      <button class="cmd-btn" onclick="runCmd('about')">about</button>
+      <button class="cmd-btn" onclick="runCmd('skills')">skills</button>
+      <button class="cmd-btn" onclick="runCmd('projects')">projects</button>
+      <button class="cmd-btn" onclick="runCmd('contact')">contact</button>
+      <button class="cmd-btn" onclick="runCmd('clear')">clear</button>
+    </div>
+  </div>
+
+  <script>
+    const cli = document.getElementById('cli');
+    const history = document.getElementById('history');
+    const body = document.getElementById('terminal-body');
+
+    const commands = {
+      help: `Available Commands:
+  about     - Learn more about me
+  skills    - View my tech stack & skills
+  projects  - See what I'm working on
+  contact   - Find out how to reach me
+  date      - Display current server time
+  clear     - Clear the terminal screen`,
+      
+      about: `ABOUT ETHAN TURK
+------------------
+Hi, I'm Ethan! I'm a developer passionate about building modern web applications, clean interfaces, and custom digital experiences.`,
+      
+      skills: `TECH STACK & SKILLS
+-------------------
+[+] Frontend: HTML5, CSS3, JavaScript
+[+] Tools: Git, GitHub, Linux, VS Code
+[+] Hosting: GitHub Pages, Cloud DNS`,
+      
+      projects: `FEATURED PROJECTS
+-----------------
+[1] ethanturk.me
+    Description: Personal terminal portfolio site built with vanilla JS.
+    Repo: https://github.com/ethanturk-dev/ethanturk-dev.github.io
+
+(More projects coming soon!)`,
+      
+      contact: `GET IN TOUCH
+------------
+Email: contact@ethanturk.me
+GitHub: https://github.com/ethanturk-dev`,
+
+      sudo: `Nice try! You do not have root privileges on ethanturk.me.`
+    };
+
+    cli.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') {
+        const input = cli.value.trim().toLowerCase();
+        cli.value = '';
+        
+        if (input !== '') {
+          executeCommand(input);
+        }
+      }
+    });
+
+    function executeCommand(cmd) {
+      const line = document.createElement('div');
+      line.className = 'output';
+      line.innerHTML = `<span class="prompt">guest@ethanturk.me:<span class="path">~</span>$</span> ${escapeHTML(cmd)}`;
+      history.appendChild(line);
+
+      const response = document.createElement('div');
+      response.className = 'output';
+
+      if (cmd === 'clear') {
+        history.innerHTML = '';
+        return;
+      } else if (cmd === 'date') {
+        response.innerText = new Date().toString();
+      } else if (commands[cmd]) {
+        response.innerHTML = formatLinks(commands[cmd]);
+      } else {
+        response.innerText = `Command not recognized: '${cmd}'. Type 'help' for available commands.`;
+      }
+
+      history.appendChild(response);
+      body.scrollTop = body.scrollHeight;
+    }
+
+    function runCmd(cmd) {
+      executeCommand(cmd);
+      cli.focus();
+    }
+
+    function formatLinks(text) {
+      const urlRegex = /(https?:\/\/[^\s]+)/g;
+      return text.replace(urlRegex, url => `<a href="${url}" target="_blank">${url}</a>`);
+    }
+
+    function escapeHTML(str) {
+      return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+  </script>
 </body>
 </html>
