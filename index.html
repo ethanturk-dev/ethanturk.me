@@ -3,166 +3,166 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ethanturk.me test</title>
+<title>ethanturk.me</title>
 <style>
 :root {
---bg-color: #000000;
---term-bg: #000000;
---text-green: #3fb950;
---text-cyan: #58a6ff;
---text-white: #ffffff;
---text-muted: #888888;
---prompt-path: #d2a8ff;
---border-color: #333333;
---header-bg: #0a0a0a;
+  --bg-color: #000000;
+  --term-bg: #000000;
+  --text-green: #3fb950;
+  --text-cyan: #58a6ff;
+  --text-white: #ffffff;
+  --text-muted: #888888;
+  --prompt-path: #d2a8ff;
+  --border-color: #333333;
+  --header-bg: #0a0a0a;
 }
 
 * {
-box-sizing: border-box;
-margin: 0;
-padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-background-color: var(--bg-color);
-color: var(--text-white);
-font-family: 'Courier New', Courier, monospace;
-display: flex;
-justify-content: center;
-align-items: center;
-min-height: 100vh;
-padding: 20px;
+  background-color: var(--bg-color);
+  color: var(--text-white);
+  font-family: 'Courier New', Courier, monospace;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
 }
 
 /* Terminal Interface - Sharp Edges */
 .terminal {
-width: 100%;
-max-width: 800px;
-height: 480px;
-background-color: var(--term-bg);
-border-radius: 0; /* Pure square corners */
-border: 1px solid var(--border-color);
-display: flex;
-flex-direction: column;
-overflow: hidden;
+  width: 100%;
+  max-width: 800px;
+  height: 480px;
+  background-color: var(--term-bg);
+  border-radius: 0;
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
 .terminal-header {
-background-color: var(--header-bg);
-padding: 10px 15px;
-display: flex;
-align-items: center;
-justify-content: center;
-border-bottom: 1px solid var(--border-color);
+  background-color: var(--header-bg);
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .title {
-font-size: 13px;
-color: var(--text-muted);
-text-align: center;
+  font-size: 13px;
+  color: var(--text-muted);
+  text-align: center;
 }
 
 .terminal-body {
-padding: 20px;
-flex: 1;
-overflow-y: auto;
-font-size: 14px;
-line-height: 1.6;
+  padding: 20px;
+  flex: 1;
+  overflow-y: auto;
+  font-size: 14px;
+  line-height: 1.6;
 }
 
 .prompt {
-color: var(--text-green);
+  color: var(--text-green);
 }
 
 .prompt .path {
-color: var(--prompt-path);
+  color: var(--prompt-path);
 }
 
 .input-line {
-display: flex;
-align-items: center;
-margin-top: 5px;
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
 }
 
 .input-line input {
-background: transparent;
-border: none;
-outline: none;
-color: var(--text-white);
-font-family: inherit;
-font-size: inherit;
-flex: 1;
-margin-left: 8px;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text-white);
+  font-family: inherit;
+  font-size: inherit;
+  flex: 1;
+  margin-left: 8px;
 }
 
 .output {
-margin-bottom: 10px;
-white-space: pre-wrap;
-word-break: break-word;
+  margin-bottom: 10px;
+  white-space: pre-wrap;
+  word-break: break-word;
 }
 
 /* Command Buttons - Sharp Edges */
 .quick-cmds {
-padding: 10px 20px;
-background: #000000;
-border-top: 1px solid var(--border-color);
-display: flex;
-gap: 10px;
-flex-wrap: wrap;
+  padding: 10px 20px;
+  background: #000000;
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 .cmd-btn {
-background: #000000;
-border: 1px solid var(--border-color);
-color: var(--text-white);
-padding: 6px 14px;
-border-radius: 0; /* Pure square corners */
-font-size: 12px;
-cursor: pointer;
-font-family: inherit;
+  background: #000000;
+  border: 1px solid var(--border-color);
+  color: var(--text-white);
+  padding: 6px 14px;
+  border-radius: 0;
+  font-size: 12px;
+  cursor: pointer;
+  font-family: inherit;
 }
 
 .cmd-btn:hover {
-background: #111111;
-border-color: #666666;
+  background: #111111;
+  border-color: #666666;
 }
 
 /* Full-Screen Unity Game Overlay - Sharp Edges */
 #game-container {
-display: none;
-position: fixed;
-top: 0;
-left: 0;
-width: 100vw;
-height: 100vh;
-background: #000000;
-z-index: 100;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #000000;
+  z-index: 100;
 }
 
 #game-frame {
-width: 100%;
-height: 100%;
-border: none;
+  width: 100%;
+  height: 100%;
+  border: none;
 }
 
 .close-game-btn {
-position: fixed;
-top: 15px;
-right: 20px;
-background: #000000;
-color: #ffffff;
-border: 1px solid var(--border-color);
-padding: 8px 16px;
-font-family: inherit;
-font-weight: bold;
-border-radius: 0; /* Pure square corners */
-cursor: pointer;
-z-index: 101;
+  position: fixed;
+  top: 15px;
+  right: 20px;
+  background: #000000;
+  color: #ffffff;
+  border: 1px solid var(--border-color);
+  padding: 8px 16px;
+  font-family: inherit;
+  font-weight: bold;
+  border-radius: 0;
+  cursor: pointer;
+  z-index: 101;
 }
 
 .close-game-btn:hover {
-background: #222222;
-border-color: #ffffff;
+  background: #222222;
+  border-color: #ffffff;
 }
 </style>
 </head>
@@ -170,40 +170,33 @@ border-color: #ffffff;
 
 <!-- Terminal Window -->
 <div class="terminal" id="terminal-window" onclick="document.getElementById('cli').focus()">
-<div class="terminal-header">
-<div class="title">hmmmm it works now</div>
-</div>
+  <div class="terminal-header">
+    <div class="title">ethanturk.me</div>
+  </div>
 
-<div class="terminal-body" id="terminal-body">
-<div id="history">
-        <div class="output">Welcome to <span style="color: var(--text-cyan)">ethanturk.me</span>
-Type <span style="color: var(--text-green)">'play'</span> to play the game i havent made yet, or press button
-        <div class="output">whats up <span style="color: var(--text-cyan)">ethanturk.me</span>
-Type <span style="color: var(--text-green)">'play'</span> to play or press button
---------------------------------------------------</div>
-</div>
+  <div class="terminal-body" id="terminal-body">
+    <div id="history">
+      <div class="output">Welcome to <span style="color: var(--text-cyan)">ethanturk.me</span><br>Type <span style="color: var(--text-green)">'play'</span> to play the game or press a button below.<br>--------------------------------------------------</div>
+    </div>
 
-<div class="input-line">
-<span class="prompt">...:<span class="path">~</span>$</span>
-<input type="text" id="cli" autofocus autocomplete="off" spellcheck="false">
-</div>
-</div>
+    <div class="input-line">
+      <span class="prompt">guest@ethanturk.me:<span class="path">~</span>$</span>
+      <input type="text" id="cli" autofocus autocomplete="off" spellcheck="false">
+    </div>
+  </div>
 
-<div class="quick-cmds">
-      <button class="cmd-btn" style="color: var(--text-green);" onclick="runCmd('play')">▶ Game (look at the cool play icon) </button>
-      <button class="cmd-btn" onclick="runCmd('placeholder1')">Placeholder 1</button>
-      <button class="cmd-btn" onclick="runCmd('placeholder2')">Placeholder 2</button>
-      <button class="cmd-btn" style="color: var(--text-green);" onclick="runCmd('play')">▶ </button>
-      <button class="cmd-btn" onclick="runCmd('placeholder1')">placeholder 1</button>
-      <button class="cmd-btn" onclick="runCmd('placeholder2')">placeholder 2</button>
-<button class="cmd-btn" onclick="runCmd('clear')">clear</button>
-</div>
+  <div class="quick-cmds">
+    <button class="cmd-btn" style="color: var(--text-green);" onclick="runCmd('play')">▶ Game</button>
+    <button class="cmd-btn" onclick="runCmd('placeholder1')">Placeholder 1</button>
+    <button class="cmd-btn" onclick="runCmd('placeholder2')">Placeholder 2</button>
+    <button class="cmd-btn" onclick="runCmd('clear')">Clear</button>
+  </div>
 </div>
 
 <!-- Game Full-Screen View -->
 <div id="game-container">
-<button class="close-game-btn" onclick="closeGame()">[X] Exit Game</button>
-<iframe id="game-frame" src=""></iframe>
+  <button class="close-game-btn" onclick="closeGame()">[X] Exit Game</button>
+  <iframe id="game-frame" src=""></iframe>
 </div>
 
 <script>
@@ -214,69 +207,69 @@ const gameContainer = document.getElementById('game-container');
 const gameFrame = document.getElementById('game-frame');
 
 const commands = {
-help: `Available Commands:
- play / game  - Launch Unity WebGL game
- placeholder1 - (placeholder)
- placeholder2 - (placeholder)
- clear        - Clear terminal screen`,
+  help: `Available Commands:
+  play / game  - Launch Unity WebGL game
+  placeholder1 - (placeholder)
+  placeholder2 - (placeholder)
+  clear        - Clear terminal screen`,
 
-placeholder1: `[PLACEHOLDER 1]: test1`,
-placeholder2: `[PLACEHOLDER 2]: test2`
+  placeholder1: `[PLACEHOLDER 1]: test1`,
+  placeholder2: `[PLACEHOLDER 2]: test2`
 };
 
 cli.addEventListener('keydown', function(e) {
-if (e.key === 'Enter') {
-const input = cli.value.trim().toLowerCase();
-cli.value = '';
-if (input !== '') {
-executeCommand(input);
-}
-}
+  if (e.key === 'Enter') {
+    const input = cli.value.trim().toLowerCase();
+    cli.value = '';
+    if (input !== '') {
+      executeCommand(input);
+    }
+  }
 });
 
 function executeCommand(cmd) {
-const line = document.createElement('div');
-line.className = 'output';
-line.innerHTML = `<span class="prompt">guest@ethanturk.me:<span class="path">~</span>$</span> ${escapeHTML(cmd)}`;
-history.appendChild(line);
+  const line = document.createElement('div');
+  line.className = 'output';
+  line.innerHTML = `<span class="prompt">guest@ethanturk.me:<span class="path">~</span>$</span> ${escapeHTML(cmd)}`;
+  history.appendChild(line);
 
-const response = document.createElement('div');
-response.className = 'output';
+  const response = document.createElement('div');
+  response.className = 'output';
 
-if (cmd === 'play' || cmd === 'game') {
-response.innerHTML = `<span style="color: var(--text-green)">Launching game...</span>`;
-launchGame();
-} else if (cmd === 'clear') {
-history.innerHTML = '';
-return;
-} else if (commands[cmd]) {
-response.innerText = commands[cmd];
-} else {
-response.innerText = `Command not recognized: '${cmd}'. Type 'help' or 'play'.`;
-}
+  if (cmd === 'play' || cmd === 'game') {
+    response.innerHTML = `<span style="color: var(--text-green)">Launching game...</span>`;
+    launchGame();
+  } else if (cmd === 'clear') {
+    history.innerHTML = '';
+    return;
+  } else if (commands[cmd]) {
+    response.innerText = commands[cmd];
+  } else {
+    response.innerText = `Command not recognized: '${cmd}'. Type 'help' or 'play'.`;
+  }
 
-history.appendChild(response);
-body.scrollTop = body.scrollHeight;
+  history.appendChild(response);
+  body.scrollTop = body.scrollHeight;
 }
 
 function launchGame() {
-gameFrame.src = './game/index.html'; 
-gameContainer.style.display = 'block';
+  gameFrame.src = './game/index.html'; 
+  gameContainer.style.display = 'block';
 }
 
 function closeGame() {
-gameContainer.style.display = 'none';
-gameFrame.src = '';
-cli.focus();
+  gameContainer.style.display = 'none';
+  gameFrame.src = '';
+  cli.focus();
 }
 
 function runCmd(cmd) {
-executeCommand(cmd);
-cli.focus();
+  executeCommand(cmd);
+  cli.focus();
 }
 
 function escapeHTML(str) {
-return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
 </script>
 </body>
