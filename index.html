@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ethanturk.me</title>
+<title>still ethanturk.me</title>
 <style>
 :root {
   --bg-color: #000000;
@@ -171,16 +171,16 @@ body {
 <!-- Terminal Window -->
 <div class="terminal" id="terminal-window" onclick="document.getElementById('cli').focus()">
   <div class="terminal-header">
-    <div class="title">ethanturk.me</div>
+    <div class="title">hmmmm at least it works now</div>
   </div>
 
   <div class="terminal-body" id="terminal-body">
     <div id="history">
-      <div class="output">Welcome to <span style="color: var(--text-cyan)">ethanturk.me</span><br>Type <span style="color: var(--text-green)">'play'</span> to play the game or press a button below.<br>--------------------------------------------------</div>
+      <div class="output"> <span style="color: var(--text-cyan)">ethanturk.me</span><br>Type <span style="color: var(--text-green)">'play'</span> to see unity test<br>--------------------------------------------------</div>
     </div>
 
     <div class="input-line">
-      <span class="prompt">guest@ethanturk.me:<span class="path">~</span>$</span>
+      <span class="prompt">type:<span class="path">~</span>$</span>
       <input type="text" id="cli" autofocus autocomplete="off" spellcheck="false">
     </div>
   </div>
@@ -195,7 +195,7 @@ body {
 
 <!-- Game Full-Screen View -->
 <div id="game-container">
-  <button class="close-game-btn" onclick="closeGame()">[X] Exit Game</button>
+  <button class="close-game-btn" onclick="closeGame()">[X] Exit </button>
   <iframe id="game-frame" src=""></iframe>
 </div>
 
@@ -207,11 +207,11 @@ const gameContainer = document.getElementById('game-container');
 const gameFrame = document.getElementById('game-frame');
 
 const commands = {
-  help: `Available Commands:
-  play / game  - Launch Unity WebGL game
+  help: `available cmds:
+  play / game  - Launch Unity
   placeholder1 - (placeholder)
   placeholder2 - (placeholder)
-  clear        - Clear terminal screen`,
+  clear        - clear terminal`,
 
   placeholder1: `[PLACEHOLDER 1]: test1`,
   placeholder2: `[PLACEHOLDER 2]: test2`
@@ -230,14 +230,14 @@ cli.addEventListener('keydown', function(e) {
 function executeCommand(cmd) {
   const line = document.createElement('div');
   line.className = 'output';
-  line.innerHTML = `<span class="prompt">guest@ethanturk.me:<span class="path">~</span>$</span> ${escapeHTML(cmd)}`;
+  line.innerHTML = `<span class="prompt">type:<span class="path">~</span>$</span> ${escapeHTML(cmd)}`;
   history.appendChild(line);
 
   const response = document.createElement('div');
   response.className = 'output';
 
   if (cmd === 'play' || cmd === 'game') {
-    response.innerHTML = `<span style="color: var(--text-green)">Launching game...</span>`;
+    response.innerHTML = `<span style="color: var(--text-green)">beep boop running the thing...</span>`;
     launchGame();
   } else if (cmd === 'clear') {
     history.innerHTML = '';
@@ -245,7 +245,7 @@ function executeCommand(cmd) {
   } else if (commands[cmd]) {
     response.innerText = commands[cmd];
   } else {
-    response.innerText = `Command not recognized: '${cmd}'. Type 'help' or 'play'.`;
+    response.innerText = `not a cmd: '${cmd}'. type 'help' or 'play'.`;
   }
 
   history.appendChild(response);
