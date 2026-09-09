@@ -176,11 +176,11 @@ body {
 
   <div class="terminal-body" id="terminal-body">
     <div id="history">
-      <div class="output"> <span style="color: var(--text-cyan)">ethanturk.me</span><br>Type <span style="color: var(--text-green)">'play'</span> to see unity test<br>--------------------------------------------------</div>
+      <div class="output"> <span style="color: var(--text-cyan)">ethanturk.me in blue</span><br>type <span style="color: var(--text-green)">'play'</span> to see unity test game<br>--------------------------------------------------</div>
     </div>
 
     <div class="input-line">
-      <span class="prompt">type:<span class="path">~</span>$</span>
+      <span class="prompt">type:<span class="path"></span></span>
       <input type="text" id="cli" autofocus autocomplete="off" spellcheck="false">
     </div>
   </div>
@@ -189,13 +189,13 @@ body {
     <button class="cmd-btn" style="color: var(--text-green);" onclick="runCmd('play')">▶ Game</button>
     <button class="cmd-btn" onclick="runCmd('placeholder1')">Placeholder 1</button>
     <button class="cmd-btn" onclick="runCmd('placeholder2')">Placeholder 2</button>
-    <button class="cmd-btn" onclick="runCmd('clear')">Clear</button>
+    <button class="cmd-btn" onclick="runCmd('clear')">clear</button>
   </div>
 </div>
 
 <!-- Game Full-Screen View -->
 <div id="game-container">
-  <button class="close-game-btn" onclick="closeGame()">[X] Exit </button>
+  <button class="close-game-btn" onclick="closeGame()">[X] exit </button>
   <iframe id="game-frame" src=""></iframe>
 </div>
 
@@ -208,7 +208,7 @@ const gameFrame = document.getElementById('game-frame');
 
 const commands = {
   help: `available cmds:
-  play / game  - Launch Unity
+  play / i think game works - Unity test
   placeholder1 - (placeholder)
   placeholder2 - (placeholder)
   clear        - clear terminal`,
@@ -230,7 +230,7 @@ cli.addEventListener('keydown', function(e) {
 function executeCommand(cmd) {
   const line = document.createElement('div');
   line.className = 'output';
-  line.innerHTML = `<span class="prompt">type:<span class="path">~</span>$</span> ${escapeHTML(cmd)}`;
+  line.innerHTML = `<span class="prompt">type:<span class="path"></span></span> ${escapeHTML(cmd)}`;
   history.appendChild(line);
 
   const response = document.createElement('div');
