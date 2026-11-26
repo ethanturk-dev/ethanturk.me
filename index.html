@@ -5,7 +5,40 @@
 </head>
 <body>
 
-<button style="font-size: 30px; padding: 20px;" onclick="document.getElementById('game').style.display='block'; document.getElementById('frame').src='./game/index.html'">start game</button>
+<svg width="300" height="300" style="border: 1px solid black;">
+  <!-- Top row pieces -->
+  <polygon points="0,0 75,0 50,65 0,55" fill="#eee" stroke="black" onclick="" />
+  <polygon points="75,0 140,0 120,75 50,65" fill="#ddd" stroke="black" onclick="" />
+  <polygon points="140,0 215,0 230,60 120,75" fill="#eee" stroke="black" onclick="" />
+  <polygon points="215,0 300,0 300,80 230,60" fill="#ddd" stroke="black" onclick="" />
+
+  <!-- Upper-middle row pieces -->
+  <polygon points="0,55 50,65 80,130 0,145" fill="#ddd" stroke="black" onclick="" />
+  <polygon points="50,65 120,75 150,140 80,130" fill="#eee" stroke="black" onclick="" />
+  <polygon points="120,75 230,60 205,150 150,140" fill="#ddd" stroke="black" onclick="" />
+  <polygon points="230,60 300,80 300,160 205,150" fill="#eee" stroke="black" onclick="" />
+
+  <!-- Center pieces -->
+  <polygon points="0,145 80,130 60,210 0,195" fill="#eee" stroke="black" onclick="" />
+  <polygon points="80,130 150,140 135,220 60,210" fill="#ddd" stroke="black" onclick="" />
+  
+  <!-- THIS ONE STARTS THE GAME -->
+  <polygon points="150,140 205,150 225,215 135,220" fill="#eee" stroke="black" style="cursor:pointer;" onclick="document.getElementById('game').style.display='block'; document.getElementById('frame').src='./game/index.html'" />
+  
+  <polygon points="205,150 300,160 300,230 225,215" fill="#ddd" stroke="black" onclick="" />
+
+  <!-- Lower-middle row pieces -->
+  <polygon points="0,195 60,210 45,260 0,250" fill="#ddd" stroke="black" onclick="" />
+  <polygon points="60,210 135,220 115,270 45,260" fill="#eee" stroke="black" onclick="" />
+  <polygon points="135,220 225,215 245,265 115,270" fill="#ddd" stroke="black" onclick="" />
+  <polygon points="225,215 300,230 300,275 245,265" fill="#eee" stroke="black" onclick="" />
+
+  <!-- Bottom row pieces -->
+  <polygon points="0,250 45,260 65,300 0,300" fill="#eee" stroke="black" onclick="" />
+  <polygon points="45,260 115,270 145,300 65,300" fill="#ddd" stroke="black" onclick="" />
+  <polygon points="115,270 245,265 210,300 145,300" fill="#eee" stroke="black" onclick="" />
+  <polygon points="245,265 300,275 300,300 210,300" fill="#ddd" stroke="black" onclick="" />
+</svg>
 
 <div id="game" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:white;">
   <button onclick="document.getElementById('game').style.display='none'; document.getElementById('frame').src=''" style="position:fixed; top:10px; right:10px;">exit</button>
