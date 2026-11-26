@@ -5,7 +5,8 @@
 </head>
 <body style="display:flex; justify-content:center; align-items:center; height:100vh; margin:0;">
 
-<svg width="300" height="300" style="border: 1px solid black;">
+<!-- MAIN PUZZLE SCREEN -->
+<svg id="main-screen" width="300" height="300" style="border: 1px solid black;">
   <!-- Top row pieces -->
   <polygon points="0,0 75,0 50,65 0,55" fill="#eee" stroke="black" />
   <polygon points="75,0 140,0 120,75 50,65" fill="#ddd" stroke="black" />
@@ -14,7 +15,11 @@
 
   <!-- Upper-middle row pieces -->
   <polygon points="0,55 50,65 80,130 0,145" fill="#ddd" stroke="black" />
-  <polygon points="50,65 120,75 150,140 80,130" fill="#eee" stroke="black" />
+  
+  <!-- THIS ONE OPENS THE LINKS SCREEN -->
+  <polygon points="50,65 120,75 150,140 80,130" fill="#eee" stroke="black" style="cursor:pointer;" onclick="document.getElementById('main-screen').style.display='none'; document.getElementById('links-screen').style.display='block';" />
+  <text x="100" y="108" text-anchor="middle" font-family="sans-serif" font-size="14" style="pointer-events:none;">links</text>
+
   <polygon points="120,75 230,60 205,150 150,140" fill="#ddd" stroke="black" />
   <polygon points="230,60 300,80 300,160 205,150" fill="#eee" stroke="black" />
 
@@ -41,6 +46,17 @@
   <polygon points="245,265 300,275 300,300 210,300" fill="#ddd" stroke="black" />
 </svg>
 
+<!-- LINKS SCREEN (HIDDEN BY DEFAULT) -->
+<div id="links-screen" style="display:none; width:300px; height:300px; border:1px solid black; padding:20px; box-sizing:border-box; font-family:sans-serif;">
+  <button onclick="document.getElementById('links-screen').style.display='none'; document.getElementById('main-screen').style.display='block';">back</button>
+  <ul>
+    <li><a href="https://github.com" target="_blank">github</a></li>
+    <li><a href="https://linkedin.com" target="_blank">linkedin</a></li>
+    <li><a href="mailto:you@ethanturk.me">email</a></li>
+  </ul>
+</div>
+
+<!-- GAME SCREEN (HIDDEN BY DEFAULT) -->
 <div id="game" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:white;">
   <button onclick="document.getElementById('game').style.display='none'; document.getElementById('frame').src=''" style="position:fixed; top:10px; right:10px;">exit</button>
   <iframe id="frame" width="100%" height="100%" frameborder="0"></iframe>
