@@ -3,7 +3,7 @@
 <head>
 <title>ethanturk.me</title>
 </head>
-<body style="display:flex; justify-content:center; align-items:center; height:100vh; margin:0;">
+<body style="display:flex; justify-content:center; align-items:center; min-height:100vh; margin:0;">
 
 <!-- MAIN PUZZLE SCREEN -->
 <svg id="main-screen" width="300" height="300" style="border: 1px solid black;">
@@ -47,11 +47,9 @@
 </svg>
 
 <!-- LINKS SCREEN (HIDDEN BY DEFAULT) -->
-<div id="daily" style="display:none; width:300px; height:300px; border:1px solid black; padding:20px; box-sizing:border-box; font-family:sans-serif;">
+<div id="links-screen" style="display:none; border:1px solid black; padding:20px; font-family:sans-serif;">
   <button onclick="document.getElementById('links-screen').style.display='none'; document.getElementById('main-screen').style.display='block';">back</button>
-  <ul>
-    <li><a href="https://github.com" target="_blank">github</a></li>
-    <li><a href="https://linkedin.com" target="_blank">linkedin</a></li>
+  <ul style="column-count: 3; column-gap: 30px; margin-top: 15px; padding-left: 20px;">
     <li><a href="https://www.nytimes.com/games/wordle/index.html" target="_blank">wordle</a></li>
     <li><a href="https://www.nytimes.com/games/connections" target="_blank">connections</a></li>
     <li><a href="https://www.nytimes.com/games/strands" target="_blank">strands</a></li>
