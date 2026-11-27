@@ -14,7 +14,10 @@
   <polygon points="215,0 300,0 300,80 230,60" fill="#ddd" stroke="black" />
 
   <!-- Upper-middle row pieces -->
+  <!-- GREEN SCREEN -->
   <polygon points="0,55 50,65 80,130 0,145" fill="#ddd" stroke="black" />
+  <text x="100" y="108" text-anchor="middle" font-family="sans-serif" font-size="14" style="pointer-events:none;">green</text>
+
   
   <!-- THIS ONE OPENS THE DAILY SCREEN -->
   <polygon points="50,65 120,75 150,140 80,130" fill="#eee" stroke="black" style="cursor:pointer;" onclick="document.getElementById('main-screen').style.display='none'; document.getElementById('daily').style.display='block';" />
@@ -98,6 +101,9 @@
   <button onclick="document.getElementById('game').style.display='none'; document.getElementById('frame').src=''" style="position:fixed; top:10px; right:10px;">exit</button>
   <iframe id="frame" width="100%" height="100%" frameborder="0"></iframe>
 </div>
+
+  <!-- GREEN SCREEN -->
+<div id="green" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgb(0, 255, 21);"></div>
 
 </body>
 </html>
